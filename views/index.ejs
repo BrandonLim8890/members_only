@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<% if (user) { %>
+		<h1>Welcome back <%= user.first %></h1>
+		<a href="/post/new">New Post</a>
+		<a href="/log-out">Log Out</a>
+		<div class="container container-post">
+			<% for( let post of posts ) { %>
+			<div class="card-container">
+				<div class="card post">
+					<div class="post-title">
+						<div class="top">
+							<h1><%= post.title %></h1>
+							<% if (user.admin) { %>
+							<form action="<%= `/post/${post.id}/delete` %>" method="POST">
+								<div class="form-group">
+									<input type="hidden" name="postid" value="<%= post.id %>" />
+								</div>
+								<button class="btn btn-delete" type="submit">Delete</button>
+							</form>
+							<% } %>
+						</div>
+						<% if (user.membership) { %>
+						<span><i><%= post.author.fullname %></i></span>
+						<% } %>
+					</div>
+					<div class="post-body">
+						<p><%= post.message %></p>
+					</div>
+					<div class="post-footer">
+						<span><%= post.timestamp %></span>
+					</div>
+				</div>
+			</div>
+			<% } %>
+		</div>
+		<% } else { %>
+		<h1>Please log in</h1>
+		<form action="/log-in" method="POST" class="container">
+			<label for="username">Email</label>
+			<input type="email" id="username" name="username" placeholder="example@mail.com" />
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password" />
+			<button type="submit">Log In!</button>
+		</form>
+		<% } %>
+	</body>
+</html>

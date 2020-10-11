@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Sign Up</title>
+		<link rel="stylesheet" href="stylesheets/style.css" />
+		<link rel="stylesheet" href="stylesheets/form.css" />
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<div class="container">
+			<form action="" method="POST">
+				<div class="group">
+					<label for="first">First Name</label>
+					<input
+						type="text"
+						id="first"
+						name="first"
+						required="true"
+						placeholder="Jake"
+						value="<%= (typeof user == 'undefined') ? '' : user.first %>"
+					/>
+				</div>
+				<div class="group">
+					<label for="last">Last Name</label>
+					<input type="text" id="last" name="last" required="true" placeholder="Simmons" value='<%= (typeof user ==
+					'undefined') ? '' : user.last %>'/>
+				</div>
+				<div class="group">
+					<label for="username">Email</label>
+					<input
+						type="email"
+						id="username"
+						name="username"
+						required="true"
+						placeholder="thisis@nexample.com"
+						value="<%= (typeof user == 'undefined') ? '' : user.username%>"
+					/>
+				</div>
+				<div class="group">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" required="true" />
+				</div>
+				<div class="group">
+					<label for="confirm_password">Confirm Password</label>
+					<input type="password" id="confirm_password" name="confirm_password" required />
+				</div>
+				<div class="group">
+					<label for="checkbox">Admin</label>
+					<input type="checkbox" name="admin" id="admin" />
+				</div>
+
+				<% if (typeof errors != 'undefined') { %>
+				<div class="group errors">
+					<% for(error of errors) { %>
+					<li><%= error.msg %></li>
+					<% } %>
+				</div>
+				<% } %>
+
+				<button class="submit" type="submit">Register</button>
+			</form>
+		</div>
+	</body>
+</html>

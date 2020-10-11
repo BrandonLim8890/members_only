@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/form.css" />
+		<title>Membership</title>
+	</head>
+	<body>
+		<% if (user) { %>
+		<h1>Membership</h1>
+		<div class="container">
+			<form action="" method="POST">
+				<div class="group">
+					<label for="membership">Membership Status: <%= user.membership %></label>
+					<input type="password" id="membership" name="membership" />
+				</div>
+				<button type="submit">Update</button>
+			</form>
+		</div>
+		<% } else { %>
+		<div class="container">
+			<h1>You are not logged in.</h1>
+			<a href="/">Log In</a>
+		</div>
+		<% } %>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+body {
+	padding: 50px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: auto;
+	background-color: #d84d6e;
+}
+
+a {
+	color: #4ec8f8;
+}
+
+.container-post {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.card-container {
+	box-sizing: border-box;
+	height: 300px;
+	width: 300px;
+	margin: 2rem;
+	background-color: white;
+	padding: 1rem;
+}
+
+.card {
+	grid-template-rows: 1fr 3fr 1fr;
+	color: black;
+	height: 100%;
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top:hover .btn {
+	opacity: 1;
+}
+
+.btn {
+	opacity: 0;
+	height: 2rem;
+	width: 5rem;
+	border: none;
+	border-radius: 0.5rem;
+}
+
+.btn-delete {
+	background-color: rgb(248, 72, 72);
+	color: white;
+	transition: opacity 0.3s ease-in-out;
+}
